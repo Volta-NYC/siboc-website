@@ -11,6 +11,29 @@ export default function ForestAvenueBidPage() {
         <p>For more information, please visit the Forest Ave BID website.</p>
       </section>
 
+      <section className="section container">
+        <article className="panel stack project-cta-panel">
+          <h2>Get BID Updates And Support</h2>
+          <p>
+            Explore the official Forest Avenue BID site for district updates, events, and merchant resources, or
+            connect directly with SIBOC for corridor support.
+          </p>
+          <div className="hero-actions">
+            <a
+              className="button solid"
+              href="https://forestavenuebid.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit Official Forest Ave BID Site
+            </a>
+            <a className="button ghost project-ghost" href="/contact">
+              Contact SIBOC About BID Services
+            </a>
+          </div>
+        </article>
+      </section>
+
       <section className="section container stack">
         <SplitBand
           image="https://siboc.org/wp-content/uploads/2024/02/FABID-New-Logo.jpg"

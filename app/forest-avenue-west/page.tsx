@@ -27,6 +27,24 @@ export default function ForestAvenueWestPage() {
         </p>
       </section>
 
+      <section className="section container">
+        <article className="panel stack project-cta-panel">
+          <h2>Support The Forest Avenue West BID Formation</h2>
+          <p>
+            BID formation requires strong local participation. Reach out to SIBOC to stay involved with updates,
+            planning phases, and neighborhood business engagement.
+          </p>
+          <div className="hero-actions">
+            <a className="button solid" href="/contact">
+              Join The Forest Avenue West Effort
+            </a>
+            <a className="button ghost project-ghost" href="/projects">
+              View All SIBOC Projects
+            </a>
+          </div>
+        </article>
+      </section>
+
       <section className="section container stack">
         <SplitBand
           image="https://siboc.org/wp-content/uploads/2023/08/Forest-West-Steering-Committe-1.jpg"

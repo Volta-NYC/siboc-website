@@ -14,8 +14,13 @@ export default function EventsPage() {
       </section>
 
       <section className="section container">
-        <article className="panel media">
-          <img src="https://siboc.org/wp-content/uploads/2024/10/IMG_1126-scaled.jpg" alt="SIBOC empowerment breakfast" loading="lazy" />
+        <article className="panel media events-featured">
+          <img
+            className="events-featured-image"
+            src="https://siboc.org/wp-content/uploads/2024/10/IMG_1126-scaled.jpg"
+            alt="SIBOC empowerment breakfast"
+            loading="lazy"
+          />
           <h3>Featured Event: SIBOC Empowerment Breakfast</h3>
           <p>
             Join SIBOC&apos;s annual celebration of business owners and community leaders making a difference on Staten

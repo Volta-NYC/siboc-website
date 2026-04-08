@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import ProgramContactForm from "@/components/ProgramContactForm";
 import SplitBand from "@/components/SplitBand";
 import { PAGE_HEADERS } from "@/lib/siteData";
 
@@ -31,6 +32,29 @@ export default function EacPage() {
         </p>
       </section>
 
+      <section className="section container">
+        <article className="panel stack service-cta-panel">
+          <h2>Start Your Business With One-On-One EAC Support</h2>
+          <p>
+            Get practical support from SIBOC on registration, planning, marketing, and financing. The EAC program is
+            designed to move your idea into action with direct guidance.
+          </p>
+          <div className="hero-actions">
+            <a
+              className="button solid"
+              href="https://siboc.org/entrepreneurial-assistance-center/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore Official EAC Program
+            </a>
+            <a className="button ghost service-ghost" href="/contact">
+              Talk To The SIBOC Team
+            </a>
+          </div>
+        </article>
+      </section>
+
       <section className="section container stack">
         <SplitBand
           image="https://siboc.org/wp-content/uploads/2023/08/EAC-Center-Fall-2022-class.jpg"
@@ -59,6 +83,7 @@ export default function EacPage() {
           </div>
         </div>
       </section>
+      <ProgramContactForm program="Entrepreneurial Assistance Center (EAC)" />
     </main>
   );
 }
