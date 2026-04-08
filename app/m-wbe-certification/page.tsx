@@ -1,9 +1,11 @@
 import PageHero from "@/components/PageHero";
+import SplitBand from "@/components/SplitBand";
+import { PAGE_HEADERS } from "@/lib/siteData";
 
 export default function MwbePage() {
   return (
     <main>
-      <PageHero title="M/WBE Certification" subtitle="Minority- and Women-Owned Business" />
+      <PageHero title="M/WBE Certification" subtitle="Minority- and Women-Owned Business" image={PAGE_HEADERS.mwbe} />
       <section className="section container stack">
         <p>
           The 2025 M/WBE Leadership Association is a group of community organizations selected by the New York
@@ -15,6 +17,26 @@ export default function MwbePage() {
           benefits of Minority and Women-owned Business Enterprise (M/WBE) certification with the City of New York.
         </p>
         <p><strong>We offer FREE certification.</strong></p>
+      </section>
+
+      <section className="section container stack">
+        <SplitBand
+          image="https://siboc.org/wp-content/uploads/2023/08/tiny-treasurers-grand-opening.jpg"
+          alt="M/WBE program support"
+          title="Certification + Contracting Support"
+          paragraphs={[
+            "SIBOC helps firms understand how to navigate city procurement pathways and certification benefits.",
+          ]}
+        />
+        <SplitBand
+          image="https://siboc.org/wp-content/uploads/2023/11/Screenshot-7.png"
+          alt="M/WBE resources"
+          title="Tools And Resources"
+          reverse
+          paragraphs={[
+            "Participating organizations provide practical tools and training for firms selling to government.",
+          ]}
+        />
       </section>
     </main>
   );

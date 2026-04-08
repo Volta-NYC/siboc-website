@@ -1,4 +1,6 @@
 import PageHero from "@/components/PageHero";
+import SplitBand from "@/components/SplitBand";
+import { PAGE_HEADERS } from "@/lib/siteData";
 
 export default function WomensBusinessCenterPage() {
   const features = [
@@ -12,7 +14,7 @@ export default function WomensBusinessCenterPage() {
 
   return (
     <main>
-      <PageHero title="Women's Business Center" subtitle="Women's Business Center Staten Island" />
+      <PageHero title="Women's Business Center" subtitle="Women's Business Center Staten Island" image={PAGE_HEADERS.wbc} />
       <section className="section container stack">
         <p>
           The Women&apos;s Business Center is dedicated to assisting all Staten Island small business owners and
@@ -23,12 +25,35 @@ export default function WomensBusinessCenterPage() {
           Island, NY. We are part of the Business Outreach Center Network (BOC) which serves over 3,000 clients
           throughout New York City.
         </p>
-        <h3>Program features</h3>
-        <ul className="list">
-          {features.map((feature) => (
-            <li key={feature}>{feature}</li>
-          ))}
-        </ul>
+      </section>
+
+      <section className="section container stack">
+        <SplitBand
+          image="https://siboc.org/wp-content/uploads/2023/08/honorees.jpg"
+          alt="Women's Business Center event"
+          title="What The WBC Offers"
+          paragraphs={[
+            "Business startup and expansion support with practical counseling for women entrepreneurs.",
+            "Planning, licensing, financing, marketing, and resource navigation support.",
+          ]}
+        />
+        <SplitBand
+          image="https://siboc.org/wp-content/uploads/2023/08/BOC-Network-Logo-No-Tag-Line.jpg"
+          alt="BOC network logo"
+          title="Program Experience"
+          reverse
+          paragraphs={[
+            "The WBC model blends direct counseling, practical planning support, and long-term business growth guidance.",
+          ]}
+        />
+        <div>
+          <h3>What It Offers</h3>
+          <div className="offer-grid">
+            {features.map((feature) => (
+              <article className="offer-card" key={feature}>{feature}</article>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
   );

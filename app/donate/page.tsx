@@ -1,10 +1,10 @@
 import PageHero from "@/components/PageHero";
-import { SITE } from "@/lib/siteData";
+import { PAGE_HEADERS, SITE } from "@/lib/siteData";
 
 export default function DonatePage() {
   return (
     <main>
-      <PageHero title="Donate to SIBOC" subtitle="The small business community needs you" />
+      <PageHero title="Donate to SIBOC" subtitle="The small business community needs you" image={PAGE_HEADERS.donate} />
       <section className="section container donate-layout">
         <article className="panel media">
           <img src="https://siboc.org/wp-content/uploads/2023/08/jade-1024x768.jpg" alt="SIBOC community" />
@@ -30,14 +30,17 @@ export default function DonatePage() {
           <p>Use the official PayPal donate button below.</p>
           <p>
             <a
-              className="button solid"
+              className="paypal-button"
               href="https://www.paypal.com/donate/?hosted_button_id=E6MPEH8WXFJFL"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Donate with PayPal
+              <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" />
+              <span>Donate with PayPal</span>
             </a>
           </p>
+          <p><strong>Quick Donate QR</strong></p>
+          <img src="https://siboc.org/wp-content/uploads/2023/11/QR-Code.png" alt="SIBOC Donate QR Code" className="donate-qr" />
           <p>
             <a href={SITE.external.donate} target="_blank" rel="noopener noreferrer">
               View official donate page

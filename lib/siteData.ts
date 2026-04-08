@@ -17,6 +17,20 @@ export const SITE = {
     "https://siboc.org/wp-content/uploads/2023/08/DSC_0054-2048x1362.jpg",
 } as const;
 
+export const PAGE_HEADERS = {
+  about: "https://siboc.org/wp-content/uploads/2024/07/unnamed-1-2048x1536.jpg",
+  services: "https://siboc.org/wp-content/uploads/2023/08/tiny-treasurers-grand-opening.jpg",
+  mwbe: "https://siboc.org/wp-content/uploads/2023/08/jade-1536x1152.jpg",
+  eac: "https://siboc.org/wp-content/uploads/2023/08/EAC-Center-Fall-2022-class.jpg",
+  wbc: "https://siboc.org/wp-content/uploads/2023/08/honorees.jpg",
+  projects: "https://siboc.org/wp-content/uploads/2024/07/DSC09134-2048x1367.jpg",
+  forestWest: "https://siboc.org/wp-content/uploads/2023/08/Forest-West-Steering-Committe-1.jpg",
+  forestBid: "https://siboc.org/wp-content/uploads/2024/02/FABID-New-Logo.jpg",
+  events: "https://siboc.org/wp-content/uploads/2024/10/IMG_1126-scaled.jpg",
+  contact: "https://siboc.org/wp-content/uploads/2024/07/unnamed-2048x1536.jpg",
+  donate: "https://siboc.org/wp-content/uploads/2023/08/jade.jpg",
+} as const;
+
 export const NAV = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -130,9 +144,20 @@ export const STAFF_BOARD = [
 ] as const;
 
 export const TESTIMONIALS = [
-  "The term 'It takes a village' has been said so often that it could lose some of its luster, except for one fact, that it's true.",
-  "Through your guidance, encouragement, and patience [She Media attracted] the largest airport advertising and sponsorship contract in the U.S.",
-  "It's wonderful to be working with people who truly care about our small businesses.",
+  {
+    quote:
+      "The term 'It takes a village' has been said so often that it could lose some of its luster, except for one fact, that it's true.",
+    from: "Client testimonial submitted to SIBOC",
+  },
+  {
+    quote:
+      "Through your guidance, encouragement, and patience [She Media attracted] the largest airport advertising and sponsorship contract in the U.S.",
+    from: "She Media NY, LLC",
+  },
+  {
+    quote: "It's wonderful to be working with people who truly care about our small businesses.",
+    from: "Local small business client",
+  },
 ] as const;
 
 export const CONTACT = {
@@ -150,4 +175,4 @@ export const ABOUT_GALLERY = [
   "https://siboc.org/wp-content/uploads/2023/08/jade-1024x768.jpg",
 ] as const;
 
-export const BOARD_PHOTO = "https://siboc.org/wp-content/uploads/2025/01/SIBOC-Board-1-1024x768.jpg";
+export const BOARD_PHOTO = "https://via.placeholder.com/640x384/f2f6ff/6784a8?text=Board+Member";
