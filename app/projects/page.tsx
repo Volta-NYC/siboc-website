@@ -1,0 +1,28 @@
+import Link from "next/link";
+import PageHero from "@/components/PageHero";
+import { PROJECT_LINKS } from "@/lib/siteData";
+
+export default function ProjectsPage() {
+  return (
+    <main>
+      <PageHero title="Projects" subtitle="Commercial revitalization and neighborhood support" />
+      <section className="section container stack">
+        <p>
+          In partnership with NYC Small Business Services, SIBOC conducts Commercial District Needs Assessments that
+          highlight the business landscape, consumer characteristics, physical environment, and unique character of
+          local business corridors.
+        </p>
+      </section>
+      <section className="section container grid">
+        {PROJECT_LINKS.map((p) => (
+          <article className="panel media" key={p.href}>
+            <img src={p.image} alt={p.label} loading="lazy" />
+            <h3>{p.label}</h3>
+            <p>{p.description}</p>
+            <Link href={p.href} className="cta-link">Explore Project</Link>
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}
