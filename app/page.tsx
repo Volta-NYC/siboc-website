@@ -58,7 +58,7 @@ export default function HomePage() {
           community organizations through practical, hands-on programs.
         </p>
         <div className="inline-gallery">
-          <img src="https://siboc.org/wp-content/uploads/2024/07/unnamed-2048x1536.jpg" alt="SIBOC community event" loading="lazy" />
+          <img className="focus-top" src="https://siboc.org/wp-content/uploads/2024/07/unnamed-2048x1536.jpg" alt="SIBOC community event" loading="lazy" />
           <img src="https://siboc.org/wp-content/uploads/2024/10/IMG_1126-scaled.jpg" alt="SIBOC celebration" loading="lazy" />
         </div>
       </section>

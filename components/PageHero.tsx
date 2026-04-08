@@ -4,14 +4,16 @@ interface PageHeroProps {
   title: string;
   subtitle?: string;
   image?: string;
+  imagePosition?: string;
 }
 
-export default function PageHero({ title, subtitle, image }: PageHeroProps) {
+export default function PageHero({ title, subtitle, image, imagePosition }: PageHeroProps) {
   return (
     <section
       className="page-hero page-hero-image"
       style={{
         backgroundImage: `linear-gradient(rgba(8, 30, 64, 0.56), rgba(8, 30, 64, 0.72)), url('${image ?? SITE.pageHeaderImage}')`,
+        backgroundPosition: imagePosition ?? "center 34%",
       }}
     >
       <div className="container">

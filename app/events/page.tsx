@@ -11,11 +11,42 @@ export default function EventsPage() {
         <p>
           The event page highlights honorees, sponsors, and ticket details for SIBOC&apos;s empowerment programming.
         </p>
-        <ul className="list">
-          <li>Honorees include business and community leaders from across Staten Island.</li>
-          <li>Sponsors include local banks, schools, and community organizations.</li>
-          <li>Events include networking, empowerment breakfast programming, and district activations.</li>
-        </ul>
+      </section>
+
+      <section className="section container">
+        <article className="panel media">
+          <img src="https://siboc.org/wp-content/uploads/2024/10/IMG_1126-scaled.jpg" alt="SIBOC empowerment breakfast" loading="lazy" />
+          <h3>Featured Event: SIBOC Empowerment Breakfast</h3>
+          <p>
+            Join SIBOC&apos;s annual celebration of business owners and community leaders making a difference on Staten
+            Island.
+          </p>
+          <p>
+            <a
+              className="cta-link"
+              href="https://siboc.org/events/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Official Event Updates
+            </a>
+          </p>
+        </article>
+      </section>
+
+      <section className="section container grid cards-3">
+        <article className="panel">
+          <h3>Honorees</h3>
+          <p>Recognizing standout entrepreneurs and community contributors from Staten Island.</p>
+        </article>
+        <article className="panel">
+          <h3>Sponsors</h3>
+          <p>Local institutions and businesses help power each event through direct support.</p>
+        </article>
+        <article className="panel">
+          <h3>Networking</h3>
+          <p>Programs are built to create new partnerships, visibility, and real opportunities.</p>
+        </article>
       </section>
 
       <section className="section container stack">

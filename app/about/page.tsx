@@ -31,14 +31,6 @@ export default function AboutPage() {
         />
       </section>
 
-      <section className="section container">
-        <div className="about-gallery">
-          {ABOUT_GALLERY.map((image) => (
-            <img key={image} src={image} alt="SIBOC community" loading="lazy" />
-          ))}
-        </div>
-      </section>
-
       <section className="section container" id="team">
         <h2>Meet The Team</h2>
         <div className="staff-grid">
