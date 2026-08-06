@@ -560,6 +560,11 @@ a {
   font-size: 0.82rem;
 }
 
+.footer-credit-link,
+.footer-credit-link:hover {
+  color: #f6b78d;
+}
+
 .staff-grid {
   margin-top: 1rem;
   display: grid;

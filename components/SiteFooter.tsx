@@ -72,6 +72,17 @@ export default function SiteFooter() {
       <div className="footer-bottom">
         <div className="container footer-bottom-row">
           <p>&copy; {year} Staten Island Business Outreach Center. All rights reserved.</p>
+          <p>
+            Made by{" "}
+            <a
+              className="footer-credit-link"
+              href="https://www.novusnyc.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Novus
+            </a>
+          </p>
           <p>Staten Island, New York</p>
         </div>
       </div>
