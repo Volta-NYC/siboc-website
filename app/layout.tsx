@@ -15,6 +15,13 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: SITE.description,
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.jpg", sizes: "32x32", type: "image/jpeg" },
+      { url: "/icon-192x192.jpg", sizes: "192x192", type: "image/jpeg" },
+    ],
+    apple: [{ url: "/apple-touch-icon.jpg", sizes: "180x180", type: "image/jpeg" }],
+  },
   openGraph: {
     type: "website",
     siteName: "SIBOC",
