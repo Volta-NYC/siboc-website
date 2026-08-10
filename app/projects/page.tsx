@@ -50,8 +50,8 @@ export default function ProjectsPage() {
         </div>
         <div className="card-grid three-up">
           {PROJECTS.slice(1).map((project) => (
-            <article className="card media-card" key={project.href}>
-              <SiteImage src={project.image} alt="" />
+            <article className={`card media-card project-media-card image-${project.imageFit}`} key={project.href}>
+              <SiteImage src={project.image} alt="" style={{ objectPosition: project.imagePosition }} />
               <div>
                 <h3>{project.label}</h3>
                 <p>{project.description}</p>

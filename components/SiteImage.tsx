@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 interface SiteImageProps {
   src: string;
@@ -9,6 +10,7 @@ interface SiteImageProps {
   width?: number;
   height?: number;
   sizes?: string;
+  style?: CSSProperties;
 }
 
 export default function SiteImage({
@@ -20,6 +22,7 @@ export default function SiteImage({
   width = 1200,
   height = 800,
   sizes = "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw",
+  style,
 }: SiteImageProps) {
   return (
     <Image
@@ -31,6 +34,7 @@ export default function SiteImage({
       loading={priority ? "eager" : loading}
       priority={priority}
       sizes={sizes}
+      style={style}
     />
   );
 }

@@ -81,8 +81,8 @@ export default function HomePage() {
         </div>
         <div className="card-grid three-up">
           {PROJECTS.map((project) => (
-            <article className="card media-card" key={project.href}>
-              <SiteImage src={project.image} alt="" />
+            <article className={`card media-card project-media-card image-${project.imageFit}`} key={project.href}>
+              <SiteImage src={project.image} alt="" style={{ objectPosition: project.imagePosition }} />
               <div>
                 <h3>{project.label}</h3>
                 <p>{project.description}</p>

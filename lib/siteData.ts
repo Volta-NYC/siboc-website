@@ -165,7 +165,9 @@ export const PROJECTS = [
   {
     label: "West Brighton Commercial District Needs Assessment",
     href: "/projects#west-brighton-cdna",
-    image: SITE.images.projects,
+    image: SITE.images.hero,
+    imageFit: "cover",
+    imagePosition: "center 38%",
     description:
       "A current CDNA with NYC Small Business Services studying Castleton Avenue and Forest Avenue business corridors in West Brighton.",
   },
@@ -173,6 +175,8 @@ export const PROJECTS = [
     label: "Forest Avenue West",
     href: "/forest-avenue-west",
     image: SITE.images.forestWest,
+    imageFit: "cover",
+    imagePosition: "center 42%",
     description:
       "BID exploration in the Forest Avenue West area of Staten Island, from Manor Road-Willowbrook Road.",
   },
@@ -180,6 +184,8 @@ export const PROJECTS = [
     label: "Forest Avenue BID",
     href: "/forest-avenue-bid",
     image: SITE.images.forestBidLogo,
+    imageFit: "contain",
+    imagePosition: "center",
     description: "SIBOC actively manages the Forest Avenue Business Improvement District.",
   },
 ] as const;

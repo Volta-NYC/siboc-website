@@ -533,6 +533,16 @@ p {
   transition: transform 240ms ease, filter 240ms ease;
 }
 
+.project-media-card img {
+  aspect-ratio: 16 / 10;
+}
+
+.project-media-card.image-contain img {
+  object-fit: contain;
+  padding: clamp(1rem, 3vw, 1.7rem);
+  background: #fff;
+}
+
 .media-card > div,
 .media-card .prose {
   padding: 1.1rem;
