@@ -19,6 +19,8 @@
   --shadow: 0 10px 30px rgba(17, 35, 58, 0.08);
   --shadow-strong: 0 18px 46px rgba(17, 35, 58, 0.13);
   --radius: 8px;
+  --radius-soft: 18px;
+  --radius-organic: 26px 10px 22px 10px;
   --reveal-inline: 52px;
   --reveal-block: 42px;
 }
@@ -440,7 +442,7 @@ p {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 18px 18px 10px 10px;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 20px 50px rgba(17, 35, 58, 0.12);
@@ -573,21 +575,24 @@ p {
   height: 100%;
   min-height: 0;
   border: 1px solid rgba(17, 35, 58, 0.16);
-  border-radius: var(--radius);
+  border-radius: var(--radius-organic);
   object-fit: cover;
   box-shadow: 0 16px 40px rgba(17, 35, 58, 0.12);
 }
 
 .community-photo-grid img:first-child {
   grid-row: 1 / 3;
+  border-radius: 32px 12px 24px 12px;
   object-position: center top;
 }
 
 .community-photo-grid img:nth-child(2) {
+  border-radius: 12px 28px 12px 22px;
   object-position: center 35%;
 }
 
 .community-photo-grid img:nth-child(3) {
+  border-radius: 24px 12px 28px 12px;
   object-position: center 48%;
 }
 
@@ -696,7 +701,7 @@ p {
 .staff-card {
   position: relative;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-soft);
   background: #fff;
   box-shadow: 0 1px 0 rgba(17, 35, 58, 0.03);
   transform: translateY(0);
@@ -727,6 +732,28 @@ p {
 .media-card {
   overflow: hidden;
   padding: 0;
+}
+
+.card-grid > .card:nth-child(odd),
+.feature-list > article:nth-child(odd),
+.offer-grid > .offer-card:nth-child(odd),
+.directory-grid > .directory-card:nth-child(odd),
+.staff-grid > .staff-card:nth-child(odd) {
+  border-radius: 22px 10px 20px 10px;
+}
+
+.card-grid > .card:nth-child(even),
+.feature-list > article:nth-child(even),
+.offer-grid > .offer-card:nth-child(even),
+.directory-grid > .directory-card:nth-child(even),
+.staff-grid > .staff-card:nth-child(even) {
+  border-radius: 10px 22px 10px 20px;
+}
+
+.media-card img {
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .media-card::before {
@@ -808,7 +835,7 @@ p {
   padding: 1.4rem;
   border-left: 4px solid var(--green);
   background: #fff;
-  border-radius: var(--radius);
+  border-radius: 10px 26px 26px 10px;
   box-shadow: var(--shadow);
 }
 
@@ -883,7 +910,7 @@ p {
   padding: 1.1rem;
   border-left: 3px solid var(--green);
   background: #fff;
-  border-radius: var(--radius);
+  border-radius: 10px 22px 22px 10px;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -909,6 +936,9 @@ p {
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center top;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .staff-card div {
@@ -924,6 +954,7 @@ p {
   min-height: 180px;
   align-items: end;
   background: var(--cream);
+  border-radius: 10px 24px 24px 10px;
 }
 
 .directory-card h3 {
@@ -975,7 +1006,7 @@ p {
 .testimonial-story,
 .testimonial-card {
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-soft);
   background: #fff;
   box-shadow: 0 1px 0 rgba(17, 35, 58, 0.03);
 }
@@ -989,6 +1020,7 @@ p {
   background: var(--blue-dark);
   color: #fff;
   box-shadow: var(--shadow-strong);
+  border-radius: 28px 10px 28px 10px;
 }
 
 .testimonial-aside blockquote,
@@ -1037,6 +1069,7 @@ p {
 
 .testimonial-story {
   padding: clamp(1.25rem, 3vw, 2.4rem);
+  border-radius: 10px 28px 10px 24px;
 }
 
 .testimonial-story-header {
@@ -1093,6 +1126,14 @@ p {
   padding: clamp(1.15rem, 2.5vw, 1.6rem);
   border-top: 4px solid var(--blue);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.testimonial-card-grid > .testimonial-card:nth-child(odd) {
+  border-radius: 22px 10px 22px 10px;
+}
+
+.testimonial-card-grid > .testimonial-card:nth-child(even) {
+  border-radius: 10px 22px 10px 22px;
 }
 
 .testimonial-card:hover {
@@ -1505,6 +1546,8 @@ address {
 
 @media (max-width: 699px) {
   :root {
+    --radius-soft: 14px;
+    --radius-organic: 18px 10px 16px 10px;
     --reveal-inline: 0px;
     --reveal-block: 30px;
   }
@@ -1554,10 +1597,17 @@ address {
 
   .community-photo-grid img {
     aspect-ratio: 16 / 10;
+    border-radius: 18px 10px 18px 10px;
   }
 
   .community-photo-grid img:first-child {
     grid-row: auto;
+  }
+
+  .community-photo-grid img:first-child,
+  .community-photo-grid img:nth-child(2),
+  .community-photo-grid img:nth-child(3) {
+    border-radius: 18px 10px 18px 10px;
   }
 
   .intro-note {
