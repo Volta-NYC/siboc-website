@@ -19,6 +19,8 @@
   --shadow: 0 10px 30px rgba(17, 35, 58, 0.08);
   --shadow-strong: 0 18px 46px rgba(17, 35, 58, 0.13);
   --radius: 8px;
+  --reveal-inline: 52px;
+  --reveal-block: 42px;
 }
 
 * {
@@ -27,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -37,6 +40,7 @@ body {
     var(--paper);
   font-family: var(--font-body);
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 img {
@@ -1500,6 +1504,11 @@ address {
 }
 
 @media (max-width: 699px) {
+  :root {
+    --reveal-inline: 0px;
+    --reveal-block: 30px;
+  }
+
   .container {
     width: min(100% - 1.25rem, 1140px);
   }
@@ -1589,6 +1598,32 @@ address {
   }
 }
 
+@media (max-width: 699px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .section-heading,
+    .intro-section > *,
+    .content-grid > *,
+    .split-summary > *,
+    .lead-project > *,
+    .event-detail > *,
+    .events-preview > *,
+    .event-lists > *,
+    .testimonial-intro > *,
+    .card-grid > *,
+    .feature-list > *,
+    .offer-grid > *,
+    .directory-grid > *,
+    .staff-grid > *,
+    .testimonial-card-grid > * {
+      animation-name: reveal-up;
+    }
+
+    .trust-item {
+      animation-name: reveal-down;
+    }
+  }
+}
+
 @media (min-width: 700px) and (max-width: 959px) {
   .trust-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1616,38 +1651,97 @@ address {
 @media (prefers-reduced-motion: no-preference) {
   .home-hero .hero-copy,
   .page-hero .container {
-    animation: reveal-soft 620ms ease-out both;
+    animation: reveal-up 680ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @supports (animation-timeline: view()) {
     .section-heading,
+    .intro-section > :first-child,
+    .content-grid > :first-child,
+    .split-summary > :first-child,
+    .lead-project > :first-child,
+    .event-detail > :first-child,
+    .events-preview > :first-child,
+    .event-lists > :first-child,
+    .community-strip-copy,
+    .testimonial-intro > :first-child {
+      animation: reveal-left both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
     .section > .container > h2,
     .section > .container > p,
     .section > .container > article,
-    .intro-section > *,
-    .community-strip-copy,
-    .community-photo-grid img,
-    .content-grid > *,
-    .split-summary > *,
-    .lead-project > *,
-    .event-detail > *,
-    .events-preview > *,
-    .event-lists > *,
-    .card,
-    .panel,
-    .testimonial-block,
-    .feature-list > *,
-    .offer-card,
-    .directory-card,
-    .staff-card,
+    .intro-section > :last-child,
+    .content-grid > :last-child,
+    .split-summary > :last-child,
+    .lead-project > :last-child,
+    .event-detail > :last-child,
+    .events-preview > :last-child,
+    .event-lists > :last-child,
+    .testimonial-intro > :last-child,
     .prose > p,
     .prose > .action-row,
     .contact-list > *,
     .form-grid > *,
     .qr-row {
-      animation: reveal-soft both;
+      animation: reveal-right both;
       animation-timeline: view();
-      animation-range: entry 0% cover 22%;
+      animation-range: entry 0% cover 30%;
+    }
+
+    .card,
+    .panel,
+    .testimonial-block,
+    .testimonial-aside,
+    .testimonial-story,
+    .testimonial-card,
+    .feature-list > *,
+    .offer-card,
+    .directory-card,
+    .staff-card {
+      animation: reveal-up both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+
+    .community-photo-grid img {
+      animation: reveal-scale both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
+    .trust-item {
+      animation: reveal-down both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 24%;
+    }
+
+    .card-grid > :nth-child(odd),
+    .feature-list > :nth-child(odd),
+    .offer-grid > :nth-child(odd),
+    .directory-grid > :nth-child(odd),
+    .staff-grid > :nth-child(odd),
+    .testimonial-card-grid > :nth-child(odd) {
+      animation-name: reveal-left;
+    }
+
+    .card-grid > :nth-child(even),
+    .feature-list > :nth-child(even),
+    .offer-grid > :nth-child(even),
+    .directory-grid > :nth-child(even),
+    .staff-grid > :nth-child(even),
+    .testimonial-card-grid > :nth-child(even) {
+      animation-name: reveal-right;
+    }
+
+    .card-grid > :nth-child(3n),
+    .feature-list > :nth-child(3n),
+    .offer-grid > :nth-child(3n),
+    .directory-grid > :nth-child(3n),
+    .staff-grid > :nth-child(3n) {
+      animation-name: reveal-up;
     }
 
     .card-grid > :nth-child(2),
@@ -1656,7 +1750,7 @@ address {
     .directory-grid > :nth-child(2),
     .staff-grid > :nth-child(2),
     .community-photo-grid img:nth-child(2) {
-      animation-range: entry 4% cover 24%;
+      animation-range: entry 6% cover 32%;
     }
 
     .card-grid > :nth-child(3),
@@ -1665,19 +1759,77 @@ address {
     .directory-grid > :nth-child(3),
     .staff-grid > :nth-child(3),
     .community-photo-grid img:nth-child(3) {
-      animation-range: entry 8% cover 26%;
+      animation-range: entry 10% cover 34%;
+    }
+
+    .card-grid > :nth-child(4),
+    .feature-list > :nth-child(4),
+    .offer-grid > :nth-child(4),
+    .directory-grid > :nth-child(4),
+    .staff-grid > :nth-child(4) {
+      animation-range: entry 14% cover 36%;
     }
   }
 }
 
-@keyframes reveal-soft {
+@keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translate3d(0, var(--reveal-block), 0);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, calc(var(--reveal-block) * -0.82), 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translate3d(calc(var(--reveal-inline) * -1), 18px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-inline), 18px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0) scale(0.96);
+    filter: saturate(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: saturate(1);
   }
 }
