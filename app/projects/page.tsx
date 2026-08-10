@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main id="main-content">
-      <PageHero title="Commercial Revitalization Projects" subtitle="Neighborhood corridor research, BID exploration, and district management." image={SITE.images.projects} />
+      <PageHero title="Commercial Revitalization Projects" subtitle="Neighborhood corridor research, BID exploration, and district management." image={SITE.images.hero} imagePosition="center 36%" />
 
       <section className="section container lead-project" id="west-brighton-cdna">
         <div>

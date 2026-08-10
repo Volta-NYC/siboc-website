@@ -12,8 +12,8 @@ export default function PageHero({ title, subtitle, image, imagePosition }: Page
     <section
       className="page-hero"
       style={{
-        backgroundImage: `linear-gradient(90deg, rgba(15, 42, 74, 0.9), rgba(15, 42, 74, 0.66)), url('${image ?? SITE.images.page}')`,
-        backgroundPosition: imagePosition ?? "center 34%",
+        backgroundImage: `url('${image ?? SITE.images.page}')`,
+        backgroundPosition: imagePosition ?? "center 42%",
       }}
     >
       <div className="container">

@@ -60,7 +60,7 @@ export default function SiteFooter() {
           <p>
             <a href="/contact">Accessibility feedback</a>
             <span aria-hidden="true"> · </span>
-            <a href="https://www.novusnyc.org" target="_blank" rel="noopener noreferrer">Made by Novus</a>
+            <a className="footer-credit-link" href="https://www.novusnyc.org" target="_blank" rel="noopener noreferrer">Made by Novus</a>
           </p>
         </div>
       </div>
