@@ -63,6 +63,24 @@ export default function HomePage() {
         ))}
       </section>
 
+      <section className="section community-strip" aria-label="SIBOC in the community">
+        <div className="container community-strip-grid">
+          <div className="community-strip-copy">
+            <p className="eyebrow">Local work</p>
+            <h2>In the office, in workshops, and along Staten Island commercial corridors.</h2>
+            <p>
+              SIBOC combines one-on-one technical assistance with neighborhood business support, commercial
+              revitalization work, and free programming for entrepreneurs.
+            </p>
+          </div>
+          <div className="community-photo-grid" aria-hidden="true">
+            <SiteImage src={SITE.images.about} alt="" sizes="(max-width: 900px) 100vw, 26vw" />
+            <SiteImage src={SITE.images.eac} alt="" sizes="(max-width: 900px) 100vw, 20vw" />
+            <SiteImage src={SITE.images.projects} alt="" sizes="(max-width: 900px) 100vw, 20vw" />
+          </div>
+        </div>
+      </section>
+
       <section className="section muted-band">
         <div className="container split-summary">
           <div>
