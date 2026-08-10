@@ -1,68 +1,53 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ProgramContactForm from "@/components/ProgramContactForm";
-import SplitBand from "@/components/SplitBand";
-import { PAGE_HEADERS } from "@/lib/siteData";
+import { MWBE_BENEFITS, SITE } from "@/lib/siteData";
+
+export const metadata: Metadata = {
+  title: "M/WBE Certification Assistance | SIBOC",
+  description: "Free SIBOC assistance for NYC M/WBE certification, city contracting information, bid access, networking, courses, and consultation.",
+};
 
 export default function MwbePage() {
   return (
-    <main>
-      <PageHero title="M/WBE Certification" subtitle="Minority- and Women-Owned Business" image={PAGE_HEADERS.mwbe} />
-      <section className="section container stack">
-        <p>
-          The 2025 M/WBE Leadership Association is a group of community organizations selected by the New York
-          City Council serving minority and women-owned businesses in New York.
-        </p>
-        <p>
-          Through this partnership with the NYC Department of Small Business Services (SBS), participating
-          organizations are provided with tools and resources to teach firms about selling to government and the
-          benefits of Minority and Women-owned Business Enterprise (M/WBE) certification with the City of New York.
-        </p>
-        <p><strong>We offer FREE certification.</strong></p>
-      </section>
+    <main id="main-content">
+      <PageHero title="M/WBE Certification Assistance" subtitle="Minority- and Women-Owned Business support." image={SITE.images.mwbe} />
 
-      <section className="section container">
-        <article className="panel stack service-cta-panel">
-          <h2>Apply For FREE M/WBE Certification Support</h2>
-          <p>
-            SIBOC helps minority- and women-owned businesses understand certification requirements and prepare for
-            procurement opportunities with the City of New York.
-          </p>
-          <div className="hero-actions">
-            <a
-              className="button solid"
-              href="https://siboc.org/m-wbe-certification/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open Official M/WBE Program Page
-            </a>
-            <a className="button ghost service-ghost" href="/contact">
-              Request Certification Help
-            </a>
+      <section className="section container content-grid">
+        <div>
+          <p className="eyebrow">Free certification support</p>
+          <h2>Learn about selling to government and certification with the City of New York.</h2>
+        </div>
+        <div className="prose">
+          <p>The 2025 M/WBE Leadership Association is a group of community organizations selected by the New York City Council serving minority and women-owned businesses in New York.</p>
+          <p>Through this partnership with the NYC Department of Small Business Services (SBS), participating organizations are provided with tools and resources to teach firms about selling to government and the benefits of Minority and Women-owned Business Enterprise (M/WBE) certification with the City of New York.</p>
+          <p><strong>SIBOC offers FREE certification assistance.</strong></p>
+          <div className="action-row">
+            <a href={SITE.external.nycMwbe} className="button secondary" target="_blank" rel="noopener noreferrer">Learn About NYC M/WBE Certification</a>
+            <a href="#program-inquiry" className="button primary">Request Free Help From SIBOC</a>
           </div>
-        </article>
+        </div>
       </section>
 
-      <section className="section container stack">
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2023/08/tiny-treasurers-grand-opening.jpg"
-          alt="M/WBE program support"
-          title="Certification + Contracting Support"
-          paragraphs={[
-            "SIBOC helps firms understand how to navigate city procurement pathways and certification benefits.",
-          ]}
-        />
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2023/11/Screenshot-7.png"
-          alt="M/WBE resources"
-          title="Tools And Resources"
-          reverse
-          paragraphs={[
-            "Participating organizations provide practical tools and training for firms selling to government.",
-          ]}
-        />
+      <section className="section muted-band">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Benefits listed by SIBOC</p>
+            <h2>Reap the benefits of M/WBE certification.</h2>
+          </div>
+          <div className="feature-list">
+            {MWBE_BENEFITS.map((benefit) => (
+              <article key={benefit}>
+                <h3>{benefit}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
-      <ProgramContactForm program="M/WBE Certification" />
+
+      <div id="program-inquiry">
+        <ProgramContactForm program="M/WBE Certification" />
+      </div>
     </main>
   );
 }

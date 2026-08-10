@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SiteImage from "@/components/SiteImage";
 
 interface SplitBandProps {
   image: string;
@@ -12,17 +13,21 @@ interface SplitBandProps {
 
 export default function SplitBand({ image, alt, title, paragraphs, reverse, ctaLabel, ctaHref }: SplitBandProps) {
   return (
-    <section className={`split-band ${reverse ? "reverse" : ""}`}>
+    <section className={`split-band${reverse ? " reverse" : ""}`}>
       <div className="split-media">
-        <img src={image} alt={alt} loading="lazy" />
+        <SiteImage src={image} alt={alt} />
       </div>
       <div className="split-copy">
         <h3>{title}</h3>
         {paragraphs.map((p) => (
           <p key={p}>{p}</p>
         ))}
-        {ctaLabel && ctaHref ? (
-          <Link href={ctaHref} className="cta-link">
+        {ctaLabel && ctaHref ? ctaHref.startsWith("http") ? (
+          <a href={ctaHref} className="text-link" target="_blank" rel="noopener noreferrer">
+            {ctaLabel}
+          </a>
+        ) : (
+          <Link href={ctaHref} className="text-link">
             {ctaLabel}
           </Link>
         ) : null}

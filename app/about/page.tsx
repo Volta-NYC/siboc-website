@@ -1,45 +1,67 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import SplitBand from "@/components/SplitBand";
-import { ABOUT_GALLERY, ABOUT_PARAGRAPHS, BOARD_PHOTO, PAGE_HEADERS, STAFF_BOARD, STAFF_TEAM } from "@/lib/siteData";
+import SiteImage from "@/components/SiteImage";
+import { ABOUT_PARAGRAPHS, OPEN_STAFF_ROLES, SITE, STAFF_BOARD, STAFF_TEAM } from "@/lib/siteData";
+
+export const metadata: Metadata = {
+  title: "About SIBOC | Staten Island Business Outreach Center",
+  description: "Learn about SIBOC's mission, free programs, SBA partnership, Women's Business Center status, team, and board.",
+};
 
 export default function AboutPage() {
   return (
-    <main>
-      <PageHero title="About" subtitle="About Us" image={PAGE_HEADERS.about} />
-      <section className="section container stack">
-        <SplitBand
-          image={ABOUT_GALLERY[0]}
-          alt="SIBOC team and community"
-          title="Serving Staten Island Since 1980"
-          paragraphs={[ABOUT_PARAGRAPHS[0], ABOUT_PARAGRAPHS[1]]}
-        />
-        <SplitBand
-          image={ABOUT_GALLERY[1]}
-          alt="SIBOC board"
-          title="Inclusive Growth Mission"
-          reverse
-          paragraphs={[ABOUT_PARAGRAPHS[2], ABOUT_PARAGRAPHS[3]]}
-        />
-        <SplitBand
-          image={ABOUT_GALLERY[2]}
-          alt="SIBOC neighborhood support"
-          title="Local Business + Neighborhood Focus"
-          paragraphs={[
-            ABOUT_PARAGRAPHS[4],
-            "Our team supports business planning, technical assistance, financial literacy, and neighborhood-focused development across Staten Island.",
-          ]}
-        />
+    <main id="main-content">
+      <PageHero title="About SIBOC" subtitle="Serving Staten Island small businesses since 1980." image={SITE.images.about} />
+
+      <section className="section container content-grid">
+        <div>
+          <p className="eyebrow">Mission</p>
+          <h2>Empowering, educating, and elevating the Staten Island community.</h2>
+        </div>
+        <div className="prose">
+          {ABOUT_PARAGRAPHS.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="section muted-band">
+        <div className="container feature-list">
+          <article>
+            <h3>Free business support</h3>
+            <p>One-on-one technical assistance, business training, financial literacy, business plan support, and M/WBE certification assistance.</p>
+          </article>
+          <article>
+            <h3>Women&apos;s Business Center</h3>
+            <p>SIBOC operates as a Women&apos;s Business Center and is part of the Business Outreach Center Network.</p>
+          </article>
+          <article>
+            <h3>Neighborhood work</h3>
+            <p>SIBOC administers the Forest Avenue BID and supports quality-of-life work with small businesses and community partners.</p>
+          </article>
+        </div>
       </section>
 
       <section className="section container" id="team">
-        <h2>Meet The Team</h2>
+        <div className="section-heading">
+          <p className="eyebrow">Staff / Team</p>
+          <h2>Meet the SIBOC team.</h2>
+        </div>
         <div className="staff-grid">
           {STAFF_TEAM.map((member) => (
             <article className="staff-card" key={member.name}>
-              <img src={member.image} alt={member.name} loading="lazy" />
-              <div className="staff-card-body">
+              <SiteImage src={member.image} alt={`${member.name}, ${member.role}`} />
+              <div>
                 <h3>{member.name}</h3>
                 <p>{member.role}</p>
+              </div>
+            </article>
+          ))}
+          {OPEN_STAFF_ROLES.map((role) => (
+            <article className="staff-card role-card" key={role}>
+              <div>
+                <h3>{role}</h3>
+                <p>Staff role listed by SIBOC</p>
               </div>
             </article>
           ))}
@@ -47,12 +69,15 @@ export default function AboutPage() {
       </section>
 
       <section className="section container" id="board">
-        <h2>Board of Directors</h2>
-        <div className="board-grid">
+        <div className="section-heading">
+          <p className="eyebrow">Governance</p>
+          <h2>Board of Directors</h2>
+        </div>
+        <div className="directory-grid">
           {STAFF_BOARD.map((member) => (
-            <article className="board-card" key={member}>
-              <img src={BOARD_PHOTO} alt={member} loading="lazy" />
-              <p>{member}</p>
+            <article className="directory-card" key={member.name}>
+              <h3>{member.name}</h3>
+              {member.role ? <p>{member.role}</p> : null}
             </article>
           ))}
         </div>

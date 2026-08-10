@@ -1,66 +1,66 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import SplitBand from "@/components/SplitBand";
-import { PAGE_HEADERS } from "@/lib/siteData";
+import SiteImage from "@/components/SiteImage";
+import { FOREST_WEST_COMMITTEE, SITE } from "@/lib/siteData";
+
+export const metadata: Metadata = {
+  title: "Forest Avenue West | SIBOC",
+  description: "Forest Avenue West BID exploration, steering committee, and ways to get involved with SIBOC.",
+};
 
 export default function ForestAvenueWestPage() {
-  const committee = [
-    "Stacey Koutras — Elan Hair and Nail Salon",
-    "Robert Fitzsimmons — Property Owner",
-    "Maria Carrozza — The Cookie Jar",
-    "Vincent Innocente — Northfield Bank",
-    "Kim Ungaro — Ungaro's Pizzeria",
-    "Leslie Velasquez — SBS",
-    "Michael Melmed — SBS",
-  ];
-
   return (
-    <main>
-      <PageHero title="Forest Avenue West" subtitle="BID Exploration" image={PAGE_HEADERS.forestWest} />
-      <section className="section container stack">
-        <p>
-          The Staten Island Business Outreach Center has recently started business improvement district (BID)
-          exploration efforts in the Forest Avenue West area of Staten Island, from Manor Road-Willowbrook Road.
-        </p>
-        <p>
-          Becoming a BID requires SIBOC to go through many BID formation phases. With the help of the local
-          community, SIBOC is on its way to having the Forest Avenue West BID formalized.
-        </p>
+    <main id="main-content">
+      <PageHero title="Forest Avenue West" subtitle="BID Exploration" image={SITE.images.forestWest} />
+
+      <section className="section container content-grid">
+        <div>
+          <p className="eyebrow">BID exploration</p>
+          <h2>Forest Avenue West business improvement district formation work.</h2>
+        </div>
+        <div className="prose">
+          <p>The Staten Island Business Outreach Center has recently started business improvement district (BID) exploration efforts in the Forest Avenue West area of Staten Island, from Manor Road-Willowbrook Road. Becoming a BID requires SIBOC to go through the many BID formation phases. With the help of the local community, SIBOC is on its way to having the Forest Avenue West BID formalized.</p>
+          <div className="action-row">
+            <Link href="/contact" className="button primary">Get Involved</Link>
+            <Link href="/contact" className="button secondary">Contact SIBOC</Link>
+            <Link href="/events" className="button secondary">View Events</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section muted-band">
+        <div className="container content-grid">
+          <div>
+            <SiteImage className="rounded-image logo-image" src={SITE.images.forestWestLogo} alt="Forest Avenue West logo" sizes="(max-width: 960px) 100vw, 50vw" />
+          </div>
+          <div className="prose">
+            <p className="eyebrow">Steering Committee</p>
+            <h2>Local stakeholders engaged with SIBOC.</h2>
+            <p>The Forest West Steering Committee is a group of local stakeholders who are proactively engaged with SIBOC.</p>
+            <ul className="check-list">
+              <li>is informed of the work being done</li>
+              <li>is solicited for regular feedback</li>
+              <li>seeks out and builds new partnerships</li>
+              <li>identifies and aligns collective resources to advance all BID Formation & Exploration work</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section className="section container">
-        <article className="panel stack project-cta-panel">
-          <h2>Support The Forest Avenue West BID Formation</h2>
-          <p>
-            BID formation requires strong local participation. Reach out to SIBOC to stay involved with updates,
-            planning phases, and neighborhood business engagement.
-          </p>
-          <div className="hero-actions">
-            <a className="button solid" href="/contact">
-              Join The Forest Avenue West Effort
-            </a>
-            <a className="button ghost project-ghost" href="/projects">
-              View All SIBOC Projects
-            </a>
-          </div>
-        </article>
-      </section>
-
-      <section className="section container stack">
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2023/08/Forest-West-Steering-Committe-1.jpg"
-          alt="Forest West Steering Committee"
-          title="Steering Committee"
-          paragraphs={[committee.join(" • ")]}
-        />
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2024/02/Forest-Avenue-West-Logo-3.png"
-          alt="Forest Avenue West logo"
-          title="Formation In Progress"
-          reverse
-          paragraphs={[
-            "With ongoing local collaboration, SIBOC continues BID formation phases for the Forest Avenue West area.",
-          ]}
-        />
+        <div className="section-heading">
+          <p className="eyebrow">Committee members</p>
+          <h2>Forest Avenue West Steering Committee</h2>
+        </div>
+        <div className="directory-grid">
+          {FOREST_WEST_COMMITTEE.map((member) => (
+            <article className="directory-card" key={member.name}>
+              <h3>{member.name}</h3>
+              <p>{member.affiliation}</p>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );

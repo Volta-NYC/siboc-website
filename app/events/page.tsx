@@ -1,77 +1,62 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import SplitBand from "@/components/SplitBand";
-import { EVENTS_TEXT, PAGE_HEADERS } from "@/lib/siteData";
+import SiteImage from "@/components/SiteImage";
+import { BREAKFAST_2025, GOOGLE_CALENDAR_EMBED, SITE } from "@/lib/siteData";
+
+export const metadata: Metadata = {
+  title: "Events | SIBOC",
+  description: "View SIBOC upcoming events through the calendar and past events including the SIBOC Empowerment Breakfast 2025.",
+};
 
 export default function EventsPage() {
   return (
-    <main>
-      <PageHero title="Events" subtitle="SIBOC Events" image={PAGE_HEADERS.events} />
-      <section className="section container stack">
-        <p>{EVENTS_TEXT}</p>
-        <p>
-          The event page highlights honorees, sponsors, and ticket details for SIBOC&apos;s empowerment programming.
-        </p>
-      </section>
+    <main id="main-content">
+      <PageHero title="Events" subtitle="SIBOC workshops, community programming, and past celebrations." image={SITE.images.events} />
 
       <section className="section container">
-        <article className="panel media events-featured">
-          <img
-            className="events-featured-image"
-            src="https://siboc.org/wp-content/uploads/2024/10/IMG_1126-scaled.jpg"
-            alt="SIBOC empowerment breakfast"
+        <div className="section-heading">
+          <p className="eyebrow">Upcoming Events</p>
+          <h2>Calendar</h2>
+          <p>Use the SIBOC calendar for current workshops, corridor programming, and community events.</p>
+        </div>
+        <div className="calendar-frame">
+          <iframe
+            src={GOOGLE_CALENDAR_EMBED}
+            title="SIBOC events calendar"
             loading="lazy"
           />
-          <h3>Featured Event: SIBOC Empowerment Breakfast</h3>
-          <p>
-            Join SIBOC&apos;s annual celebration of business owners and community leaders making a difference on Staten
-            Island.
-          </p>
-          <p>
-            <a
-              className="cta-link"
-              href="https://siboc.org/events/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Official Event Updates
-            </a>
-          </p>
-        </article>
+        </div>
       </section>
 
-      <section className="section container grid cards-3">
-        <article className="panel">
-          <h3>Honorees</h3>
-          <p>Recognizing standout entrepreneurs and community contributors from Staten Island.</p>
-        </article>
-        <article className="panel">
-          <h3>Sponsors</h3>
-          <p>Local institutions and businesses help power each event through direct support.</p>
-        </article>
-        <article className="panel">
-          <h3>Networking</h3>
-          <p>Programs are built to create new partnerships, visibility, and real opportunities.</p>
-        </article>
+      <section className="section muted-band">
+        <div className="container event-detail">
+          <div>
+            <p className="eyebrow">Past Event</p>
+            <h2>{BREAKFAST_2025.name}</h2>
+            <p><strong>Date:</strong> {BREAKFAST_2025.date}</p>
+            <p><strong>Venue:</strong> {BREAKFAST_2025.venue}</p>
+          </div>
+          <SiteImage src={SITE.images.events} alt="SIBOC Empowerment Breakfast attendees" sizes="(max-width: 960px) 100vw, 50vw" />
+        </div>
       </section>
 
-      <section className="section container stack">
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2024/10/IMG_1126-scaled.jpg"
-          alt="SIBOC event"
-          title="Community-Focused Events"
-          paragraphs={[
-            "Programming brings together entrepreneurs, community partners, sponsors, and local residents.",
-          ]}
-        />
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2024/10/IMG_0583-scaled.jpeg"
-          alt="SIBOC event attendees"
-          title="Networking + Recognition"
-          reverse
-          paragraphs={[
-            "Events are designed to celebrate impact, build connections, and create real opportunities for local businesses.",
-          ]}
-        />
+      <section className="section container event-lists">
+        <article>
+          <h2>Honorees</h2>
+          <ul className="check-list">
+            {BREAKFAST_2025.honorees.map((honoree) => (
+              <li key={honoree}>{honoree}</li>
+            ))}
+          </ul>
+        </article>
+        <article>
+          <h2>Sponsors</h2>
+          <ul className="check-list">
+            {BREAKFAST_2025.sponsors.map((sponsor) => (
+              <li key={sponsor}>{sponsor}</li>
+            ))}
+          </ul>
+        </article>
       </section>
     </main>
   );

@@ -1,85 +1,50 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ProgramContactForm from "@/components/ProgramContactForm";
-import SplitBand from "@/components/SplitBand";
-import { PAGE_HEADERS } from "@/lib/siteData";
+import { SITE, WBC_FEATURES } from "@/lib/siteData";
+
+export const metadata: Metadata = {
+  title: "Women's Business Center Staten Island | SIBOC",
+  description: "SIBOC's Women's Business Center helps Staten Island businesses with startup, expansion, business plans, licensing, financial resources, marketing, advertising, and import/export information.",
+};
 
 export default function WomensBusinessCenterPage() {
-  const features = [
-    "Business Start Up or Expansion",
-    "Business Plan Development",
-    "Licensing and Permit Information",
-    "Identifying Financial Resource Opportunities",
-    "Marketing Research and Advertising",
-    "Import/Export Information",
-  ];
-
   return (
-    <main>
-      <PageHero title="Women's Business Center" subtitle="Women's Business Center Staten Island" image={PAGE_HEADERS.wbc} />
-      <section className="section container stack">
-        <p>
-          The Women&apos;s Business Center is dedicated to assisting all Staten Island small business owners and
-          entrepreneurs with all aspects of their business.
-        </p>
-        <p>
-          The Staten Island Business Outreach Center (SIBOC) serves small businesses and residents throughout Staten
-          Island, NY. We are part of the Business Outreach Center Network (BOC) which serves over 3,000 clients
-          throughout New York City.
-        </p>
-      </section>
+    <main id="main-content">
+      <PageHero title="Women's Business Center Staten Island" subtitle="Business counseling for Staten Island entrepreneurs." image={SITE.images.wbc} />
 
-      <section className="section container">
-        <article className="panel stack service-cta-panel">
-          <h2>Get Direct WBC Guidance For Your Business Goals</h2>
-          <p>
-            Work with SIBOC&apos;s Women&apos;s Business Center for startup or expansion planning, licensing guidance,
-            funding resource support, and marketing strategy coaching.
-          </p>
-          <div className="hero-actions">
-            <a
-              className="button solid"
-              href="https://siboc.org/womens-business-center/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore Official WBC Program
-            </a>
-            <a className="button ghost service-ghost" href="/contact">
-              Connect With A WBC Advisor
-            </a>
-          </div>
-        </article>
-      </section>
-
-      <section className="section container stack">
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2023/08/honorees.jpg"
-          alt="Women's Business Center event"
-          title="What The WBC Offers"
-          paragraphs={[
-            "Business startup and expansion support with practical counseling for women entrepreneurs.",
-            "Planning, licensing, financing, marketing, and resource navigation support.",
-          ]}
-        />
-        <SplitBand
-          image="https://siboc.org/wp-content/uploads/2023/08/BOC-Network-Logo-No-Tag-Line.jpg"
-          alt="BOC network logo"
-          title="Program Experience"
-          reverse
-          paragraphs={[
-            "The WBC model blends direct counseling, practical planning support, and long-term business growth guidance.",
-          ]}
-        />
+      <section className="section container content-grid">
         <div>
-          <h3>What It Offers</h3>
+          <p className="eyebrow">WBC</p>
+          <h2>Support for Staten Island small business owners and entrepreneurs.</h2>
+        </div>
+        <div className="prose">
+          <p>The Women&apos;s Business Center is dedicated to assisting all Staten Island small business owners and entrepreneurs with all aspects of their business.</p>
+          <p>The Staten Island Business Outreach Center (SIBOC) serves small businesses and residents throughout Staten Island, NY. SIBOC is part of the Business Outreach Center Network (BOC), which serves over 3,000 clients throughout New York City.</p>
+          <div className="action-row">
+            <a href={SITE.external.bocWbc} className="button secondary" target="_blank" rel="noopener noreferrer">Learn About BOC/WBC</a>
+            <a href="#program-inquiry" className="button primary">Request Free Help From SIBOC</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section muted-band">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Program features</p>
+            <h2>What the WBC offers.</h2>
+          </div>
           <div className="offer-grid">
-            {features.map((feature) => (
+            {WBC_FEATURES.map((feature) => (
               <article className="offer-card" key={feature}>{feature}</article>
             ))}
           </div>
         </div>
       </section>
-      <ProgramContactForm program="Women's Business Center (WBC)" />
+
+      <div id="program-inquiry">
+        <ProgramContactForm program="Women's Business Center (WBC)" />
+      </div>
     </main>
   );
 }
