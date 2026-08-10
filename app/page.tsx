@@ -30,21 +30,27 @@ export default function HomePage() {
 
       <section className="trust-strip" aria-label="SIBOC facts">
         <div className="container trust-grid">
-          {TRUST_POINTS.map((item) => (
-            <p key={item}>{item}</p>
+          {TRUST_POINTS.map((item, index) => (
+            <article className="trust-item" key={item}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{item}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="section container intro-section">
-        <div>
+      <section className="section container intro-section home-services-intro">
+        <div className="intro-copy">
           <p className="eyebrow">Services</p>
           <h2>Practical help for entrepreneurs, storefronts, and commercial corridors.</h2>
         </div>
-        <p>SIBOC services are free and focused on concrete business needs: counseling, business plans, financial literacy, seminars, webinars, entrepreneurship training, M/WBE certification, contracting assistance, and related business/workforce support.</p>
+        <div className="intro-note">
+          <p>SIBOC services are free and focused on concrete business needs: counseling, business plans, financial literacy, seminars, webinars, entrepreneurship training, M/WBE certification, contracting assistance, and related business/workforce support.</p>
+          <p className="service-free-note">All services are free.</p>
+        </div>
       </section>
 
-      <section className="section container card-grid four-up">
+      <section className="section container card-grid four-up services-card-grid">
         {SERVICES.map((service) => (
           <article className="card media-card" key={service.href}>
             <SiteImage src={service.image} alt="" />
