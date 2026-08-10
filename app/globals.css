@@ -1750,7 +1750,7 @@ address {
     .directory-grid > :nth-child(2),
     .staff-grid > :nth-child(2),
     .community-photo-grid img:nth-child(2) {
-      animation-range: entry 6% cover 32%;
+      animation-range: entry 12% cover 42%;
     }
 
     .card-grid > :nth-child(3),
@@ -1759,7 +1759,7 @@ address {
     .directory-grid > :nth-child(3),
     .staff-grid > :nth-child(3),
     .community-photo-grid img:nth-child(3) {
-      animation-range: entry 10% cover 34%;
+      animation-range: entry 20% cover 48%;
     }
 
     .card-grid > :nth-child(4),
@@ -1767,7 +1767,23 @@ address {
     .offer-grid > :nth-child(4),
     .directory-grid > :nth-child(4),
     .staff-grid > :nth-child(4) {
-      animation-range: entry 14% cover 36%;
+      animation-range: entry 28% cover 54%;
+    }
+
+    .card-grid > :nth-child(5),
+    .feature-list > :nth-child(5),
+    .offer-grid > :nth-child(5),
+    .directory-grid > :nth-child(5),
+    .staff-grid > :nth-child(5) {
+      animation-range: entry 34% cover 58%;
+    }
+
+    .card-grid > :nth-child(6),
+    .feature-list > :nth-child(6),
+    .offer-grid > :nth-child(6),
+    .directory-grid > :nth-child(6),
+    .staff-grid > :nth-child(6) {
+      animation-range: entry 40% cover 62%;
     }
   }
 }
