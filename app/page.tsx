@@ -32,7 +32,7 @@ export default function HomePage() {
         <div className="container trust-grid">
           {TRUST_POINTS.map((item, index) => (
             <article className="trust-item" key={item}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span>{index + 1}</span>
               <p>{item}</p>
             </article>
           ))}
