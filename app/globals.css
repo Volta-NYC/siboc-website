@@ -1346,8 +1346,21 @@ main img {
   background: #fff;
 }
 
+.form-grid input[aria-invalid="true"],
+.form-grid textarea[aria-invalid="true"] {
+  border-color: #b74444;
+  box-shadow: 0 0 0 3px rgba(183, 68, 68, 0.12);
+}
+
 .form-grid textarea {
   resize: vertical;
+}
+
+.field-error {
+  margin-top: -0.25rem;
+  color: #7d2020;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .hidden-field {
