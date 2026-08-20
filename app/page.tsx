@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteImage from "@/components/SiteImage";
-import { BREAKFAST_2025, PROJECTS, SERVICES, SITE, TESTIMONIALS, TRUST_POINTS } from "@/lib/siteData";
+import {
+  BREAKFAST_2025,
+  HOME_COMMUNITY_PHOTOS,
+  PROJECTS,
+  SERVICES,
+  SITE,
+  TESTIMONIALS,
+  TRUST_POINTS,
+} from "@/lib/siteData";
 
 export const metadata: Metadata = {
   title: "SIBOC | Staten Island Business Outreach Center",
@@ -74,9 +82,9 @@ export default function HomePage() {
             </p>
           </div>
           <div className="community-photo-grid" aria-hidden="true">
-            <SiteImage src={SITE.images.about} alt="" sizes="(max-width: 900px) 100vw, 26vw" />
-            <SiteImage src={SITE.images.eac} alt="" sizes="(max-width: 900px) 100vw, 20vw" />
-            <SiteImage src={SITE.images.projects} alt="" sizes="(max-width: 900px) 100vw, 20vw" />
+            {HOME_COMMUNITY_PHOTOS.map((photo) => (
+              <SiteImage key={photo.src} src={photo.src} alt={photo.alt} sizes="(max-width: 900px) 100vw, 26vw" />
+            ))}
           </div>
         </div>
       </section>

@@ -22,6 +22,7 @@ export const SITE = {
     contact: "/images/contact.jpg",
     donate: "/images/donate.jpg",
     donateQr: "/images/donate-qr.png",
+    reginaPabon: "/images/client-regina-pabon-bk2pr-catering.jpg",
   },
   socials: {
     instagram: "https://www.instagram.com/siboc_nyc/",
@@ -97,6 +98,21 @@ export const TRUST_POINTS = [
   "All Services Are Free",
   "Women's Business Center",
   "Partner of the U.S. Small Business Administration",
+] as const;
+
+export const HOME_COMMUNITY_PHOTOS = [
+  {
+    src: "/images/siboc-empowerment-1.jpg",
+    alt: "SIBOC Empowerment event attendees gathered for a group photo",
+  },
+  {
+    src: SITE.images.reginaPabon,
+    alt: "Regina Pabon of BK2PR Catering",
+  },
+  {
+    src: "/images/siboc-empowerment-4.jpg",
+    alt: "SIBOC Empowerment event guests and community members",
+  },
 ] as const;
 
 export const SERVICE_SUMMARY =
@@ -295,6 +311,11 @@ export const BREAKFAST_2025 = {
 
 export const GOOGLE_CALENDAR_EMBED =
   "https://calendar.google.com/calendar/embed?src=c_fd6a3b93c36c826d4dfa11b0099b40fa3545c9181a79fa10d48126d32eafe49e%40group.calendar.google.com&ctz=America%2FNew_York";
+
+export const EMPOWERMENT_PHOTOS = Array.from({ length: 17 }, (_, index) => ({
+  src: `/images/siboc-empowerment-${index + 1}.jpg`,
+  alt: `SIBOC Empowerment event photo ${index + 1}`,
+}));
 
 // TODO(content): SIBOC must verify the donation mailing address before production launch.
 // The main contact address is 686 Forest Ave, while the legacy donate page lists 868 Forest Ave for mailed checks.

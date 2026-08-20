@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SiteImage from "@/components/SiteImage";
-import { BREAKFAST_2025, GOOGLE_CALENDAR_EMBED, SITE } from "@/lib/siteData";
+import { BREAKFAST_2025, EMPOWERMENT_PHOTOS, GOOGLE_CALENDAR_EMBED, SITE } from "@/lib/siteData";
 
 export const metadata: Metadata = {
   title: "Events | SIBOC",
@@ -57,6 +57,27 @@ export default function EventsPage() {
             ))}
           </ul>
         </article>
+      </section>
+
+      <section className="section muted-band">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Event Photos</p>
+            <h2>SIBOC Empowerment moments.</h2>
+          </div>
+          <div className="photo-gallery">
+            {EMPOWERMENT_PHOTOS.map((photo, index) => (
+              <figure className="photo-gallery-item" key={photo.src}>
+                <SiteImage
+                  src={photo.src}
+                  alt={photo.alt}
+                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                />
+                <figcaption>Photo {index + 1}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
   );

@@ -1283,6 +1283,59 @@ main img {
   gap: 1.5rem;
 }
 
+.photo-gallery {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.45rem);
+  margin-top: 2rem;
+}
+
+.photo-gallery-item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(17, 35, 58, 0.14);
+  border-radius: 28px 12px 24px 12px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(17, 35, 58, 0.12);
+}
+
+.photo-gallery-item:nth-child(3n + 2) {
+  border-radius: 12px 30px 12px 24px;
+}
+
+.photo-gallery-item:nth-child(3n) {
+  border-radius: 24px 12px 30px 12px;
+}
+
+.photo-gallery-item img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.photo-gallery-item:hover img {
+  transform: scale(1.025);
+  filter: saturate(1.04);
+}
+
+.photo-gallery-item figcaption {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  background: rgba(9, 31, 60, 0.78);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .contact-list {
   display: grid;
   gap: 1rem;
@@ -1538,6 +1591,10 @@ address {
   .testimonial-story dl {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .photo-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 960px) {
@@ -1582,6 +1639,22 @@ address {
 
   .directory-grid.compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photo-gallery-item:nth-child(1),
+  .photo-gallery-item:nth-child(8),
+  .photo-gallery-item:nth-child(15) {
+    grid-column: span 2;
+  }
+
+  .photo-gallery-item:nth-child(1) img,
+  .photo-gallery-item:nth-child(8) img,
+  .photo-gallery-item:nth-child(15) img {
+    aspect-ratio: 16 / 9;
   }
 
   .footer-grid {
@@ -1717,7 +1790,8 @@ address {
     .offer-grid > *,
     .directory-grid > *,
     .staff-grid > *,
-    .testimonial-card-grid > * {
+    .testimonial-card-grid > *,
+    .photo-gallery > * {
       animation-name: reveal-up;
     }
 
@@ -1803,7 +1877,8 @@ address {
     .feature-list > *,
     .offer-card,
     .directory-card,
-    .staff-card {
+    .staff-card,
+    .photo-gallery-item {
       animation: reveal-up both;
       animation-timeline: view();
       animation-range: entry 0% cover 28%;
@@ -1826,7 +1901,8 @@ address {
     .offer-grid > :nth-child(odd),
     .directory-grid > :nth-child(odd),
     .staff-grid > :nth-child(odd),
-    .testimonial-card-grid > :nth-child(odd) {
+    .testimonial-card-grid > :nth-child(odd),
+    .photo-gallery > :nth-child(odd) {
       animation-name: reveal-left;
     }
 
@@ -1835,7 +1911,8 @@ address {
     .offer-grid > :nth-child(even),
     .directory-grid > :nth-child(even),
     .staff-grid > :nth-child(even),
-    .testimonial-card-grid > :nth-child(even) {
+    .testimonial-card-grid > :nth-child(even),
+    .photo-gallery > :nth-child(even) {
       animation-name: reveal-right;
     }
 
@@ -1843,7 +1920,8 @@ address {
     .feature-list > :nth-child(3n),
     .offer-grid > :nth-child(3n),
     .directory-grid > :nth-child(3n),
-    .staff-grid > :nth-child(3n) {
+    .staff-grid > :nth-child(3n),
+    .photo-gallery > :nth-child(3n) {
       animation-name: reveal-up;
     }
 
@@ -1852,6 +1930,7 @@ address {
     .offer-grid > :nth-child(2),
     .directory-grid > :nth-child(2),
     .staff-grid > :nth-child(2),
+    .photo-gallery > :nth-child(2),
     .community-photo-grid img:nth-child(2) {
       animation-range: entry 12% cover 42%;
     }
@@ -1861,6 +1940,7 @@ address {
     .offer-grid > :nth-child(3),
     .directory-grid > :nth-child(3),
     .staff-grid > :nth-child(3),
+    .photo-gallery > :nth-child(3),
     .community-photo-grid img:nth-child(3) {
       animation-range: entry 20% cover 48%;
     }
@@ -1869,7 +1949,8 @@ address {
     .feature-list > :nth-child(4),
     .offer-grid > :nth-child(4),
     .directory-grid > :nth-child(4),
-    .staff-grid > :nth-child(4) {
+    .staff-grid > :nth-child(4),
+    .photo-gallery > :nth-child(4) {
       animation-range: entry 28% cover 54%;
     }
 
@@ -1877,7 +1958,8 @@ address {
     .feature-list > :nth-child(5),
     .offer-grid > :nth-child(5),
     .directory-grid > :nth-child(5),
-    .staff-grid > :nth-child(5) {
+    .staff-grid > :nth-child(5),
+    .photo-gallery > :nth-child(5) {
       animation-range: entry 34% cover 58%;
     }
 
@@ -1885,8 +1967,38 @@ address {
     .feature-list > :nth-child(6),
     .offer-grid > :nth-child(6),
     .directory-grid > :nth-child(6),
-    .staff-grid > :nth-child(6) {
+    .staff-grid > :nth-child(6),
+    .photo-gallery > :nth-child(6) {
       animation-range: entry 40% cover 62%;
+    }
+
+    .photo-gallery > :nth-child(7),
+    .photo-gallery > :nth-child(13) {
+      animation-range: entry 8% cover 38%;
+    }
+
+    .photo-gallery > :nth-child(8),
+    .photo-gallery > :nth-child(14) {
+      animation-range: entry 16% cover 46%;
+    }
+
+    .photo-gallery > :nth-child(9),
+    .photo-gallery > :nth-child(15) {
+      animation-range: entry 24% cover 52%;
+    }
+
+    .photo-gallery > :nth-child(10),
+    .photo-gallery > :nth-child(16) {
+      animation-range: entry 32% cover 58%;
+    }
+
+    .photo-gallery > :nth-child(11),
+    .photo-gallery > :nth-child(17) {
+      animation-range: entry 38% cover 62%;
+    }
+
+    .photo-gallery > :nth-child(12) {
+      animation-range: entry 44% cover 66%;
     }
   }
 }
