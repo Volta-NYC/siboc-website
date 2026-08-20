@@ -208,7 +208,6 @@ export const PROJECTS = [
 
 export const STAFF_TEAM = [
   { name: "Nina Flores", role: "Executive Director", image: "/images/staff-nina-flores.jpg" },
-  { name: "Nina Flores", role: "Executive Director, SIBOC BID", image: "/images/staff-nina-flores-bid.jpg" },
   { name: "Linda Rodriguez", role: "EAC Program Manager", image: "/images/staff-linda-rodriguez.jpg" },
   { name: "Rosanna Gottlieb", role: "Program Coordinator", image: "/images/staff-rosanna-gottlieb.jpg" },
   {
