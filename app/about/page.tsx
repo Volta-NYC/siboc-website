@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import SiteImage from "@/components/SiteImage";
-import { ABOUT_PARAGRAPHS, OPEN_STAFF_ROLES, SITE, STAFF_BOARD, STAFF_TEAM } from "@/lib/siteData";
+import { ABOUT_PARAGRAPHS, SITE, STAFF_BOARD, STAFF_TEAM } from "@/lib/siteData";
 
 export const metadata: Metadata = {
   title: "About SIBOC | Staten Island Business Outreach Center",
@@ -49,19 +49,11 @@ export default function AboutPage() {
         </div>
         <div className="staff-grid">
           {STAFF_TEAM.map((member) => (
-            <article className="staff-card" key={member.name}>
+            <article className="staff-card" key={`${member.name}-${member.role}`}>
               <SiteImage src={member.image} alt={`${member.name}, ${member.role}`} />
               <div>
                 <h3>{member.name}</h3>
                 <p>{member.role}</p>
-              </div>
-            </article>
-          ))}
-          {OPEN_STAFF_ROLES.map((role) => (
-            <article className="staff-card role-card" key={role}>
-              <div>
-                <h3>{role}</h3>
-                <p>Staff role listed by SIBOC</p>
               </div>
             </article>
           ))}

@@ -191,13 +191,27 @@ export const PROJECTS = [
 ] as const;
 
 export const STAFF_TEAM = [
-  { name: "Nina Flores", role: "Executive Director", image: "/images/nina.jpg" },
-  { name: "Linda Rodriguez", role: "EAC Program Manager", image: "/images/linda.jpg" },
-  { name: "Gabriela Velazquez", role: "Program Assistant", image: "/images/gabriela.jpeg" },
-  { name: "Rosanna Gottlieb", role: "Program Coordinator", image: "/images/rosanna.jpg" },
+  { name: "Nina Flores", role: "Executive Director", image: "/images/staff-nina-flores.jpg" },
+  { name: "Nina Flores", role: "Executive Director, SIBOC BID", image: "/images/staff-nina-flores-bid.jpg" },
+  { name: "Linda Rodriguez", role: "EAC Program Manager", image: "/images/staff-linda-rodriguez.jpg" },
+  { name: "Rosanna Gottlieb", role: "Program Coordinator", image: "/images/staff-rosanna-gottlieb.jpg" },
+  {
+    name: "Julianne Bunora",
+    role: "Program Administrative Assistant",
+    image: "/images/staff-julianne-bunora.jpg",
+  },
+  {
+    name: "Christine Callan",
+    role: "Commercial Revitalization Program Manager, N360",
+    image: "/images/staff-christine-callan.jpg",
+  },
+  { name: "Al Bonadonna", role: "Business Development Specialist", image: "/images/staff-al-bonadonna.jpg" },
+  {
+    name: "Jessica Gonzales",
+    role: "Neighborhood Development Specialist",
+    image: "/images/staff-jessica-gonzales.jpg",
+  },
 ] as const;
-
-export const OPEN_STAFF_ROLES = ["Business Development Specialist", "Neighborhood Development Specialist"] as const;
 
 export const STAFF_BOARD = [
   { name: "Teresa Cirelli", role: "President" },
