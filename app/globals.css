@@ -121,11 +121,11 @@ p {
   top: 0;
   z-index: 60;
   isolation: isolate;
-  background: rgba(13, 49, 94, 0.96);
+  background: rgba(13, 49, 94, 0.72);
   color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 12px 32px rgba(17, 35, 58, 0.18);
-  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 26px rgba(17, 35, 58, 0.12);
+  backdrop-filter: blur(18px) saturate(1.15);
   transition: box-shadow 180ms ease, background-color 180ms ease;
 }
 
