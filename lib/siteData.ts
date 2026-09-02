@@ -222,9 +222,9 @@ export const STAFF_TEAM = [
   },
   { name: "Al Bonadonna", role: "Business Development Specialist", image: "/images/staff-al-bonadonna.jpg" },
   {
-    name: "Jessica Gonzales",
+    name: "Alasia Lawrence",
     role: "Neighborhood Development Specialist",
-    image: "/images/staff-jessica-gonzales.jpg",
+    image: "/images/staff-alasia-lawrence.jpg",
   },
 ] as const;
 
